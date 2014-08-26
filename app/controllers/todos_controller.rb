@@ -7,7 +7,7 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     if @todo.save
-      redirect_to @todo, notice: 'Your new TODO was saved'
+      redirect_to @todo, notice: 'Your new Todo was saved'
     else
       flash[:error] = 'There was an error saving your item.  Please try again'
       render :new
@@ -15,16 +15,20 @@ class TodosController < ApplicationController
   end
 
   def show
-    @todo = Todo.find params[:id]
+    @todo = Todo.find(params[:id])
   end
 
   def index
-    @todos = Todo.all
+    @todos = current_user.todos
+  end
+
+  def complete?
+    true
   end
 
   private
 
   def todo_params
-    params.require(:todo).permit(:description)
+    params.require(:todo).permit(:description, :complete)
   end
 end
