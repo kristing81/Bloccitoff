@@ -1,11 +1,15 @@
 class TodosController < ApplicationController
 
-  def new  
+  def new
+    @list = List.find(params[:list_id])  
     @todo = Todo.new
+    #@todo.list = @list
   end
 
   def create
+    @list = List.find(params[:list_id])  
     @todo = Todo.new(todo_params)
+    @todo.list = @list
     if @todo.save
       redirect_to @todo, notice: 'Your new Todo was saved'
     else
@@ -15,6 +19,7 @@ class TodosController < ApplicationController
   end
 
   def show
+    @list = List.find(params[:list_id])  
     @todo = Todo.find(params[:id])
   end
 

@@ -1,4 +1,1 @@
- <%= form_for List.new do |form| %>
-   <%= form.text_field :name, placeholder: 'List name' %>
-   <%= form.button 'Save', notice: "Your list has been saved" %>
- <% end %>
+<%= render partial: 'form', locals: {list: @list, todo: @todo} %>

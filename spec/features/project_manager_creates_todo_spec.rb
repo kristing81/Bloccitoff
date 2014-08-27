@@ -2,7 +2,11 @@ require 'rails_helper'
 
 feature 'Project manager creater TODO' do
   scenario 'Successfully' do
-    visit new_todo_path
+    list = FactoryGirl.create(:list)
+    visit list_path(list) # visit an existing list
+    expect(page).to have_content("Work list")
+    click_button "Add todo"
+    expect(page).to have_content("Add your todo")
     fill_in 'Description', with: 'Meet up with the team'
     click_button 'Save'
     expect(page).to have_content('Your new TODO was saved')
@@ -10,9 +14,10 @@ feature 'Project manager creater TODO' do
   end
 
   scenario 'With description missing' do
-    visit new_todo_path
+    visit new_list_todo_path(list)
     fill_in 'Description', with: ""
     click_button 'Save'
     expect(page).to have_content('There was an error saving your item.  Please try again')
   end
 end
+#Install

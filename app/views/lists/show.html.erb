@@ -1,6 +1,7 @@
 <h1><%= @list.name %></h1>
+  
+<%= render partial: 'todos/form', locals: { list: @list, todo: @todo } %>
 
 
-<%= link_to "Add to Todo to list", new_list_todo_path(@list, @todo) %>  
 
-
+ 
