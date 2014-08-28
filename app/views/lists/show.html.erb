@@ -2,6 +2,8 @@
   
 <%= render partial: 'todos/form', locals: { list: @list, todo: @todo } %>
 
+<%= redirect_to list_todo_path(list.id) %>
+
 
 
  

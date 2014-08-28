@@ -4,7 +4,7 @@ Blocitoff::Application.routes.draw do
   resources :lists do
     resources :todos, except: [:index]
   end
-  
-  root to: "welcome#index"
+
+  root to: "lists#index"
 
 end

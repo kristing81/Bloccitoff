@@ -10,6 +10,8 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    #@list = @list.todos
+    #redirect_to list_path
   end
 
   def edit
