@@ -30,6 +30,8 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   
   config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers, :type => :request
+  config.include Devise::TestHelpers, :type => [:feature, :controller]
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
@@ -55,4 +57,12 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+end
+
+def login_user
+  @user = FactoryGirl.create(:user)
+  visit new_user_session_path
+  fill_in 'Email', with: '@user.email'
+  fill_in 'Password', with: '@user.password'
+  click_button "Sign in"
 end
