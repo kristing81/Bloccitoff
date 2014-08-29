@@ -28,6 +28,8 @@ GEM
     addressable (2.3.6)
     arel (4.0.2)
     bcrypt (3.1.7)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
     builder (3.1.4)
     capybara (2.4.1)
       mime-types (>= 1.16)
@@ -54,6 +56,11 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.2.1)
+    factory_girl (4.4.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
@@ -170,10 +177,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.1.1)
   capybara
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise
+  factory_girl_rails
   figaro
   jbuilder (~> 1.2)
   jquery-rails

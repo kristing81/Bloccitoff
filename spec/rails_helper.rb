@@ -5,6 +5,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'factory_girl_rails'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -28,6 +29,19 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
   
+  config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers, :type => :request
+  config.include Devise::TestHelpers, :type => [:feature, :controller]
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
@@ -43,4 +57,12 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+end
+
+def login_user
+  @user = FactoryGirl.create(:user)
+  visit new_user_session_path
+  fill_in 'Email', with: @user.email
+  fill_in 'Password', with: @user.password
+  click_button "Sign in"
 end

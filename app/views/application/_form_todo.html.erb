@@ -1,0 +1,6 @@
+<h4>Add your todo</h4>
+<%= form_for [@list,@todo] do |f| %>
+  <%= f.text_field :description, placeholder: 'Description' %>
+  <%= f.submit 'Add todo' %>
+<% end %>
+

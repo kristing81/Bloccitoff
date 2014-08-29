@@ -1,4 +1,2 @@
-<%= form_for @todo do |form| %>
-  <%= form.text_field :description, placeholder: 'Description' %>
-  <%= form.button 'Save' %>
-<% end %>
+<%= @list.name %>
+<%= render partial: 'form_todo', locals: {list: @list, todo: @todo} %>
