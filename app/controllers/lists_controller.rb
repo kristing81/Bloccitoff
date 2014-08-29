@@ -10,8 +10,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    #@list = @list.todos
-    #redirect_to list_path
+    @todos = @list.todos
   end
 
   def edit
@@ -21,7 +20,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to @list, notice: 'Your list was saved'
+      redirect_to list_path(@list), notice: 'Your list was saved'
     else
       flash[:error] = 'There was an error saving your list.  Please try again'
       render :new 

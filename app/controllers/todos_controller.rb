@@ -1,14 +1,16 @@
 class TodosController < ApplicationController
 
   def new
+    @list = List.find(params[:list_id])
     @todo = Todo.new
   end
  
   def create  
-    @todo = list.todos.build.(todo_params)
-    @todo.list = @list
+    @list = List.find(params[:list_id])
+    @todo = @list.todos.build(todo_params)
+
     if @todo.save
-      redirect_to @list, notice: 'Your new Todo was saved'
+      redirect_to list_todo_path(@list, @todo), notice: 'Your new Todo was saved'
     else
       flash[:error] = 'There was an error saving your item.  Please try again'
       render :new

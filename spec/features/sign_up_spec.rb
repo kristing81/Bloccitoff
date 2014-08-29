@@ -8,6 +8,6 @@ feature 'New user signs up' do
     fill_in 'Password confirmation', with: 'password', match: :prefer_exact
     click_button 'Sign up'
     expect(page).to have_content('A message with a confirmation link has been sent to your email address. Please open the link to activate your account.')
-    expect(page).to have_content('Welcome to Blocitoff')
+    expect(page).to have_content('Welcome to Bloccitoff')
   end
 end

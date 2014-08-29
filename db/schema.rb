@@ -18,16 +18,17 @@ ActiveRecord::Schema.define(version: 20140826042631) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "todo_id"
   end
-
-  add_index "lists", ["todo_id"], name: "index_lists_on_todo_id"
 
   create_table "todos", force: true do |t|
     t.string   "description"
+    t.boolean  "complete",    default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "list_id"
   end
+
+  add_index "todos", ["list_id"], name: "index_todos_on_list_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

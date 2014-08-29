@@ -1,6 +1,6 @@
 class AddTodoToList < ActiveRecord::Migration
   def change
-    add_column :lists, :todo_id, :integer
-    add_index :lists, :todo_id
+    add_column :todos, :list_id, :integer
+    add_index :todos, :list_id
   end
 end
