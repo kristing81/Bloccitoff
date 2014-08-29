@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
 
   def new
-   @todo = Todo.new
+    @todo = Todo.new
   end
  
   def create  
@@ -22,6 +22,7 @@ class TodosController < ApplicationController
 
   def index
     @todos = current_user.todos
+    @todo = Todo.new
   end
 
   def complete?
