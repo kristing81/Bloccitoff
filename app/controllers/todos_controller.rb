@@ -7,7 +7,7 @@ class TodosController < ApplicationController
  
   def create  
     @list = List.find(params[:list_id])
-    @todo = @list.todos.build(todo_params)
+    @todo = Todo.new(todo_params)
 
     if @todo.save
       redirect_to list_todo_path(@list, @todo), notice: 'Your new Todo was saved'
@@ -23,7 +23,8 @@ class TodosController < ApplicationController
   end
 
   def index
-    @todos = current_user.todos
+    @list = List.find(params[:list_id]) 
+    @todos = list.todos
     @todo = Todo.new
   end
 

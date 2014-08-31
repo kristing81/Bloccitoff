@@ -1,6 +1,12 @@
-<h1><%= @list.name %></h1>
+<h1><%= @list.name %></h4>
+<h4>Todos </h4>
+  <!--<% @list.todos.each do |todo| %>
+    <%= @todo.description %>
+  <% end %>  I don't know why this doesn't render a list of my todos-->
+  <%= link_to "Add another todo", new_list_todo_path(@list) %>
   
-<%= render partial: 'form_list', locals: { list: @list, todo: @todo } %>
+
+
 
 
 
