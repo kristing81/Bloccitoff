@@ -8,10 +8,10 @@ feature 'User creates todo' do
     expect(page).to have_content("Work list")
     click_button "Add todo"
     expect(page).to have_content("Add your todo")
-    fill_in 'Description', with: 'Meet up with the team'
+    fill_in 'Description', with: 'Meet with team'
     click_button 'Add todo'
     expect(page).to have_content('Your new Todo was saved')
-    expect(page).to have_content('Meet up with the team')
+    expect(page).to have_content('Meet with team')
   end
 
   scenario 'With description missing' do
