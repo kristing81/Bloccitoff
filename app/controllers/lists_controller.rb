@@ -34,7 +34,7 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     if @list.update(list_params)
-      redirect_to action: 'show', id: @list.id
+      redirect_to @list
     else
       render action: 'edit'
     end

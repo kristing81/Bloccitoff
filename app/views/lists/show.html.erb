@@ -1,14 +1,20 @@
-<h1><%= @list.name %></h4>
-<h4>Todos </h4>
-  <!--<% @list.todos.each do |todo| %>
-    <%= @todo.description %>
-  <% end %>  I don't know why this doesn't render a list of my todos-->
-  <%= link_to "Add another todo", new_list_todo_path(@list) %>
-  
-
-
-
-
-
-
- 
+<h3><%= @list.name %></h3>
+<div class='container'>
+  <table>
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Complete</th>
+      </tr>
+    </thead>
+      <% @todos.each do |todo| %>
+    <tbody>
+      <tr>
+        <td width="200px"><%= todo.description %></td>
+        <td width="200px"><%= link_to "Complete", complete_list_todo_path(@list,todo), method: :put %></td>
+      </tr>
+      <% end %>
+    </tbody>
+   </table>
+</div>
+<%= link_to "Add another todo", new_list_todo_path(@list) %>
