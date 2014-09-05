@@ -4,6 +4,7 @@
     <thead>
       <tr>
         <th>Description</th>
+        <th>Days Left</th>
         <th>Complete</th>
       </tr>
     </thead>
@@ -11,6 +12,7 @@
     <tbody>
       <tr>
         <td width="200px"><%= todo.description %></td>
+        <td width="200px"><%= distance_of_time_in_words_to_now(todo.expiry_date) %></td>
         <td width="200px"><%= link_to "Complete", complete_list_todo_path(@list,todo), method: :put %></td>
       </tr>
       <% end %>

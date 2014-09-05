@@ -12,4 +12,8 @@ class Todo < ActiveRecord::Base
       self.destroy
     end
   end
+
+  def expiry_date
+    self.created_at+1.week
+  end
 end
