@@ -6,7 +6,7 @@ describe 'rake delete_todo' do
   end
 
   
-  it "deletes todos 7 days after creation" do 
+  it "deletes todos 7 days after creation" do
     Blocitoff::Application.load_tasks
     Rake::Task['delete_todo'].invoke 
     expect(Todo.count).to eq(0)
