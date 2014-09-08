@@ -1,14 +1,7 @@
+<br/>
 <div class="jumbotron">
-  <h1>Welcome to Bloccitoff</h1>
-    <p>Blocitoff is a self-destructing to do list to keep your life tidy and your mind sane</p>
-    <p id="sign-in-buttons">
-       <% if current_user %>
-        Hello <%= current_user.email %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <% else%>
-        <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary btn-sm' %> or
-        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-sm' %> today!
-      <% end %>
-      <%= link_to "Lists", lists_path %>
-    </p>
+  <div class="container">
+    <h1>Welcome to Bloccitoff</h1>
+      <p>Blocitoff is a self-destructing to-do list to keep your life tidy and your mind sane!</p> 
+  </div>
 </div>
-

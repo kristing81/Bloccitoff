@@ -1,19 +1,38 @@
  @import "bootstrap";
 
 .jumbotron {
-  background-color: #D2E0E0;
+  background-image: url(http://38.media.tumblr.com/b17db73cf114d2e77523226dea59a324/tumblr_nbk6bwaU3h1st5lhmo1_1280.jpg);
+  border-color: #1D7272;
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+  border-radius: 5px;
 }
 
 .btn-primary{
-  background-color:#1D7272;
-  border-color: black;
+  background-color: #FFFFFF;
+  border-color: #1D7272;
+  color: #1D7272;
 }
-#sign-in-buttons{
-  position: fixed;
-  top: 30px;
-  right: 30px;
+
+.nav-pills  {
+  color: #1D7272;
+  padding-top: 20px;
 }
 
 .new_todo {
   margin: 30px;
+}
+
+
+.list-unstyled{
+  padding: 20px;
+  line-height: 110%;
+
+}
+body {
+  background-color: #F2F2F2;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
 }
