@@ -1,4 +1,5 @@
 class ListsController < ApplicationController
+  respond_to :html, :js
   
   def index
     @lists = List.all
@@ -38,6 +39,19 @@ class ListsController < ApplicationController
     else
       render action: 'edit'
     end
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    if @list.destroy
+    flash[:notice] = "\"#{@list.name}\" was deleted successfully."
+    else
+    flash[:error] = "There was an error deleting the list."
+    end
+
+    respond_with(@list) do |format|
+    format.html { redirect_to lists_path }
+    end 
   end
 
   private

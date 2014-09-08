@@ -1,6 +1,9 @@
-<h4>Lists</h4>
-<% @lists.each do |list| %>
-  <%= link_to list.name, list %>
-<% end %>
-<%= link_to "New list", new_list_path %>
- 
+<h3>Lists</h3>
+
+<ul class="list-unstyled">
+  <li><% @lists.each do |list| %>
+      <%= link_to list.name, list %>
+  </li><br/>
+  <% end %>
+</ul>
+  <%= link_to "New list", new_list_path, class: "btn btn-default"%>

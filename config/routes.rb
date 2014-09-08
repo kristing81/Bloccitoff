@@ -11,7 +11,7 @@ Blocitoff::Application.routes.draw do
   get '/lists/:list_id/todos/:id' => 'lists#show'
   #put'/lists/:list_id/todo_complete' => 'lists#show' 
   match '/todos/complete' => 'todos#complete', :via => :post
-
+  delete '/lists/:id' => 'lists#destroy'
   root to: "welcome#index"
 
 end

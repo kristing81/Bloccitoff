@@ -1,4 +1,4 @@
 <div class="new_todo">
-  <h4><%= @list.name %></h4>
+  <h4><%= link_to "#{@list.name}", list_path(@list) %></h4>
     <%= render partial: 'form_todo', locals: {list: @list, todo: @todo} %>
 </div>

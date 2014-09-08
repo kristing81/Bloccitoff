@@ -10,8 +10,8 @@ class TodosController < ApplicationController
     @todo = list.todos.create(todo_params)
 
     if @todo.save
+      redirect_to list_todos_path(@list)
       flash[:notice] = 'Your new Todo was saved'
-      redirect_to [@list]
     else
       flash[:error] = 'There was an error saving your item.  Please try again'
       render :new
@@ -39,15 +39,6 @@ class TodosController < ApplicationController
       flash[:error] = "Error updating . Please try again."
     end
   end
-
- #  def complete
- #    params[:todos_checkbox].each do |check|
- #       todo_id = check
- #       t = list.todos.find(params[:id])
- #       t.update_attribute(:complete, true)
- #     end
- #    redirect_to [@list, @todo], notice: 'Todo is complete'
- # end
 
   def complete
      @todo = list.todos.find(params[:id])
