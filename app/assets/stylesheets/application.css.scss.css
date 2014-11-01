@@ -1,4 +1,4 @@
- @import "bootstrap";
+@import "bootstrap";
 
 .jumbotron {
   background-image: url(http://38.media.tumblr.com/b17db73cf114d2e77523226dea59a324/tumblr_nbk6bwaU3h1st5lhmo1_1280.jpg);
@@ -9,6 +9,7 @@
   color: white;
   text-shadow: black 0.3em 0.3em 0.3em;
   border-radius: 5px;
+  height: 500px;
 }
 
 .btn-primary{

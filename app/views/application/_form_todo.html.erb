@@ -1,6 +1,6 @@
-<h5>Add your todo</h5>
-  <%= form_for [@list,@todo], class: 'form-vertical', remote: true do |f| %>
-    <%= f.text_field :description, placeholder: 'Description' %>
-    <%= f.submit 'Add todo', class: "btn btn-default"%>
-  <% end %>
+<%= form_for [@list,@todo], class: 'form-vertical', remote: true do |f| %>
+  <%= f.text_field :description, class: 'form-control', placeholder: 'Description' %>
+  <br/>
+  <%= f.submit 'Add todo', class: "btn btn-default"%>
+<% end %>
 

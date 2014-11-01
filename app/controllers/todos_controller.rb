@@ -6,12 +6,13 @@ class TodosController < ApplicationController
     @todo = @list.todos.new
   end
  
-  def create  
+  def create
+    @list = List.find(params[:list_id])  
     @todo = list.todos.create(todo_params)
 
     if @todo.save
-      redirect_to list_todos_path(@list)
       flash[:notice] = 'Your new Todo was saved'
+      redirect_to list_todo_path(@list)
     else
       flash[:error] = 'There was an error saving your item.  Please try again'
       render :new
@@ -42,7 +43,6 @@ class TodosController < ApplicationController
 
   def complete
      @todo = list.todos.find(params[:id])
-     #new = { :complete => true}
      @todo.update_attributes(params[:complete])
      #@todo.update(["completed_at=?", Time.now], :id => params[:todo_id])
      @todo.delete
@@ -51,7 +51,7 @@ class TodosController < ApplicationController
   def destroy
     @todo = list.todos.find(params[:id])
       if @todo.destroy
-      flash[:notice] = "\"#{@todo}\" was deleted successfully."
+      flash[:notice] = "Todo was deleted successfully."
       redirect_to @list
       else
       flash[:error] = "There was an error deleting the todo."
@@ -61,7 +61,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.require(:todo).permit(:description)
+    params.require(:todo).permit(:description, :complete, :list_id)
   end
 
   def list

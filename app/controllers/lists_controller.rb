@@ -21,7 +21,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to list_path(@list), notice: 'Your list was saved'
+      redirect_to @list, notice: 'Your list was saved'
     else
       flash[:error] = 'There was an error saving your list.  Please try again'
       render :new 
@@ -34,7 +34,7 @@ class ListsController < ApplicationController
 
   def update
     @list = List.find(params[:id])
-    if @list.update(list_params)
+    if @list.update_attributes(list_params)
       redirect_to @list
     else
       render action: 'edit'
@@ -44,11 +44,10 @@ class ListsController < ApplicationController
   def destroy
     @list = List.find(params[:id])
     if @list.destroy
-    flash[:notice] = "\"#{@list.name}\" was deleted successfully."
+    flash[:notice] = "List was deleted successfully."
     else
     flash[:error] = "There was an error deleting the list."
     end
-
     respond_with(@list) do |format|
     format.html { redirect_to lists_path }
     end 
