@@ -5,7 +5,7 @@ feature 'User creates todo list' do
     visit new_list_path
     fill_in 'List name', with: "This week"
     click_button 'Save'
-    expect(page).to have_content('Your list was saved')
+    expect(page).to have_content('This week')
   end
 end
    

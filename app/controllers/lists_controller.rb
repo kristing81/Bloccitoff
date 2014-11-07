@@ -21,7 +21,8 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      redirect_to @list, notice: 'Your list was saved'
+      flash[:notice] = "List was created successfully."
+      redirect_to lists_path
     else
       flash[:error] = 'There was an error saving your list.  Please try again'
       render :new 

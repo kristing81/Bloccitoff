@@ -12,7 +12,7 @@ class TodosController < ApplicationController
 
     if @todo.save
       flash[:notice] = 'Your new Todo was saved'
-      redirect_to list_todo_path(@list)
+      redirect_to list_path(@list)
     else
       flash[:error] = 'There was an error saving your item.  Please try again'
       render :new
@@ -20,7 +20,7 @@ class TodosController < ApplicationController
   end
 
   def index
-    @todos = list.todos
+    @todos = list.todos.active
   end
 
   def show

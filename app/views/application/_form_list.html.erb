@@ -1,5 +1,7 @@
- <%= form_for @list, class: 'form-vertical', remote: true  do |f| %>
-   <%= f.text_field :name, class: 'form-control',placeholder: 'List name' %>
-   <br/>
-   <%= f.submit 'Save', class: "btn btn-default btn-sm", notice: "Your list has been saved" %>
+ <%= form_for @list, class: 'horizontal', remote: true  do |f| %>
+  <div class="form-group">
+    <%= f.text_field :name, class: 'form-control',placeholder: 'List name' %>
+  <br/>
+    <%= f.submit 'Save', class: "btn btn-default btn-sm", notice: "Your list has been saved" %>
  <% end %>
+</div>
