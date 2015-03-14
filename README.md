@@ -9,4 +9,4 @@ Built using:
 - Rake Tasks
 
 ![alt text](/public/Bloccitoff Home.png "Bloccitoff Home")
-![alt text](/public/Bloccit List.png "Bloccitoff List")
+![alt text](/public/Bloccitoff List.png "Bloccitoff List")
